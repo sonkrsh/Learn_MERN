@@ -8,7 +8,7 @@ const ApiError = require("../utils/ApiError");
 const addUser = async (req, res, next) => {
   try {
     const resData = await usersModel.create(req.body);
-    successHandle(res, httpStatus.CREATED, resData.toJSON(resData));
+    successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }
@@ -41,7 +41,7 @@ const loginsUser = async (req, res, next) => {
 
       const createToken = await createAuth(retriveQuery);
       return successHandle(res, httpStatus.FOUND, {
-        data: query.toJSON(retriveQuery),
+        data: query,
         token: createToken,
       });
     }

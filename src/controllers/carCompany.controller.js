@@ -1,6 +1,6 @@
 const { carCompanyModel } = require("../models");
 const httpStatus = require("http-status");
-const { get, isEmpty } = require("lodash");
+const { get, isEmpty, isEqual } = require("lodash");
 const { createAuth } = require("../middlewares/auth");
 const generateImageName = require("../utils/generateImageName");
 const successHandle = require("../middlewares/successHandle");
@@ -15,10 +15,24 @@ const createCarCompany = async (req, res, next) => {
     await uploadImage(req, dataInSequence.imgShortId);
     const resData = await carCompanyModel.create(dataInSequence.combineData);
 
-    successHandle(res, httpStatus.CREATED, resData.toJSON(resData));
+    successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }
 };
 
-module.exports = { createCarCompany };
+const deleteCarCompany = async (req, res, next) => {
+  try {
+    const resData = await carCompanyModel.destroy({
+      where: {
+        carCompany_uuid: get(req, "body.carCompany_uuid"),
+      },
+    });
+
+    if (resData) successHandle(res, httpStatus.OK, resData);
+    next(new ApiError(httpStatus.NOT_FOUND));
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
+module.exports = { createCarCompany, deleteCarCompany };

@@ -5,7 +5,7 @@ const generateImageName = async (data) => {
   let imgShortId = null;
   let combineData = null;
   if (data.file) {
-    imgShortId = await `${shortid.generate()}-${data.file.originalname}`;
+    imgShortId = await `${shortid.generate()}.png`;
     combineData = {
       name: data.body.name,
       image: `${config.image.image_url}/${imgShortId}`,

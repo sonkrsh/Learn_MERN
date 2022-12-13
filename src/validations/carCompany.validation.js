@@ -6,7 +6,13 @@ const createCarCompany = {
     image: Joi.any(),
   }),
 };
+const deleteCarCompany = {
+  body: Joi.object().keys({
+    carCompany_uuid: Joi.string().required(),
+  }),
+};
 
 module.exports = {
   createCarCompany,
+  deleteCarCompany,
 };
