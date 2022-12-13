@@ -7,12 +7,13 @@ const { carModelController } = require("../../../controllers");
 
 const router = express.Router();
 
-router.post(
-  "/carModel",
-  verifyAuth(),
-  upload.single("image"),
-  validate(carModelValidation.createCarModel),
-  carModelController.createCarModel
-);
+router
+  .route("/carModel")
+  .post(
+    verifyAuth(),
+    upload.single("image"),
+    validate(carModelValidation.createCarModel),
+    carModelController.createCarModel
+  );
 
 module.exports = router;

@@ -6,6 +6,6 @@ const { {{name}}Controller } = require("../../../controllers");
 
 const router = express.Router();
 
-router.post("/{{name}}",verifyAuth(), validate({{name}}Validation.create{{pascal name}}) ,{{name}}Controller.create{{pascal name}});
+router.route("/{{name}}").post(verifyAuth(), validate({{name}}Validation.create{{pascal name}}) ,{{name}}Controller.create{{pascal name}});
 
 module.exports = router;
