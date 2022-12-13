@@ -1,7 +1,6 @@
 const { carCompanyModel } = require("../models");
 const httpStatus = require("http-status");
 const { get, isEmpty, isEqual } = require("lodash");
-const { createAuth } = require("../middlewares/auth");
 const generateImageName = require("../utils/generateImageName");
 const successHandle = require("../middlewares/successHandle");
 const ApiError = require("../utils/ApiError");
