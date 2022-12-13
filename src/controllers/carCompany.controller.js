@@ -29,7 +29,7 @@ const deleteCarCompany = async (req, res, next) => {
     });
 
     if (resData) successHandle(res, httpStatus.OK, resData);
-    next(new ApiError(httpStatus.NOT_FOUND));
+    return next(new ApiError(httpStatus.NOT_FOUND));
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }

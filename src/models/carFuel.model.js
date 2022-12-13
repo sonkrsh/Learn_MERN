@@ -11,6 +11,9 @@ const carFuel = sequelize.define("carFuel", {
   name: {
     type: DataTypes.STRING,
   },
+  image: {
+    type: DataTypes.STRING,
+  },
 });
 
 module.exports = carFuel;

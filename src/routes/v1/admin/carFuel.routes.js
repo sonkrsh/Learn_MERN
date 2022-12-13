@@ -1,5 +1,6 @@
 const express = require("express");
 const validate = require("../../../middlewares/validate");
+const upload = require("../../../utils/multer");
 const { verifyAuth } = require("../../../middlewares/auth");
 const { carFuelValidation } = require("../../../validations");
 const { carFuelController } = require("../../../controllers");
@@ -10,8 +11,14 @@ router
   .route("/carFuel")
   .post(
     verifyAuth(),
+    upload.single("image"),
     validate(carFuelValidation.createCarFuel),
     carFuelController.createCarFuel
+  )
+  .delete(
+    verifyAuth(),
+    validate(carFuelValidation.deleteCarFuel),
+    carFuelController.deleteCarFuel
   );
 
 module.exports = router;
