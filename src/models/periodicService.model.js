@@ -2,10 +2,10 @@ const { DataTypes } = require("sequelize");
 const { get } = require("lodash");
 const sequelize = require("../config/database");
 
-const location = sequelize.define(
-  "location",
+const periodicService = sequelize.define(
+  "periodicService",
   {
-    location_uuid: {
+    periodicService_uuid: {
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -18,10 +18,23 @@ const location = sequelize.define(
         this.setDataValue("name", value.trim());
       },
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    points: {
+      type: DataTypes.JSON,
+      set: function (value) {
+        this.setDataValue("points", JSON.parse(value));
+      },
+    },
+    work_done_in: {
+      type: DataTypes.STRING,
+    },
   },
   {
     underscored: true,
   }
 );
 
-module.exports = location;
+module.exports = periodicService;

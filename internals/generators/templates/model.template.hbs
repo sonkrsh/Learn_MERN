@@ -12,8 +12,16 @@ const {{name}} = sequelize.define(
     },
     name: {
       type: DataTypes.STRING,
+       allowNull: false,
+        unique: true,
+      set: function (value) {
+        this.setDataValue("name", value.trim());
+      },
     },
   },
+  {
+    underscored: true,
+  }
 );
 
 module.exports = {{name}};
