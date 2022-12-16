@@ -22,6 +22,10 @@ const servicesTag = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     points: {
       type: DataTypes.JSON,
       set: function (value) {
