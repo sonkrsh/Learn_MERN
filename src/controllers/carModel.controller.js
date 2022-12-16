@@ -9,10 +9,7 @@ const uploadImage = require("../utils/uploadImage");
 
 const createCarModel = async (req, res, next) => {
   try {
-    const dataInSequence = await generateImageName(req);
-
-    await uploadImage(req, dataInSequence.imgShortId);
-    const resData = await carModelModel.create(dataInSequence.combineData);
+    const resData = await carModelModel.create(get(req, "body"));
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));

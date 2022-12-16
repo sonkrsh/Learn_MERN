@@ -24,9 +24,7 @@ const carServices = sequelize.define(
     },
     points: {
       type: DataTypes.JSON,
-      set: function (value) {
-        this.setDataValue("points", JSON.parse(value));
-      },
+      allowNull: false,
     },
     servicesTag_uuid: {
       type: DataTypes.STRING,

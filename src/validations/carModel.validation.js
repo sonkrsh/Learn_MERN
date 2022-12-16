@@ -4,7 +4,7 @@ const createCarModel = {
   body: Joi.object().keys({
     name: Joi.string().required(),
     carCompany_uuid: Joi.string().required(),
-    image: Joi.any(),
+    image: Joi.string().required(),
   }),
 };
 

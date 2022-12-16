@@ -9,10 +9,7 @@ const uploadImage = require("../utils/uploadImage");
 
 const createCarFuel = async (req, res, next) => {
   try {
-    const dataInSequence = await generateImageName(req);
-
-    await uploadImage(req, dataInSequence.imgShortId);
-    const resData = await carFuelModel.create(dataInSequence.combineData);
+    const resData = await carFuelModel.create(get(req, "body"));
 
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {

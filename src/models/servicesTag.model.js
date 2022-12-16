@@ -28,9 +28,6 @@ const servicesTag = sequelize.define(
     },
     points: {
       type: DataTypes.JSON,
-      set: function (value) {
-        this.setDataValue("points", JSON.parse(value));
-      },
     },
   },
   {

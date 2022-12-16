@@ -7,7 +7,7 @@ const ApiError = require("../utils/ApiError");
 
 const addUser = async (req, res, next) => {
   try {
-    const resData = await usersModel.create(req.body);
+    const resData = await usersModel.create(get(req, "body"));
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));

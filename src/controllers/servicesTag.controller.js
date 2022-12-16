@@ -9,10 +9,7 @@ const uploadImage = require("../utils/uploadImage");
 
 const createServicesTag = async (req, res, next) => {
   try {
-    const dataInSequence = await generateImageName(req);
-
-    await uploadImage(req, dataInSequence.imgShortId);
-    const resData = await servicesTagModel.create(dataInSequence.combineData);
+    const resData = await servicesTagModel.create(get(req, "body"));
 
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
