@@ -3,6 +3,7 @@ const carCompanyModel = require("./carCompany.model");
 const carModelModel = require("./carModel.model");
 const carFuelModel = require("./carFuel.model");
 const locationModel = require("./location.model");
+const servicesTagModel = require("./servicesTag.model");
 // ADD_MODEL
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
   carModelModel,
   carFuelModel,
   locationModel,
+  servicesTagModel,
   // MODEL_REF
 };
