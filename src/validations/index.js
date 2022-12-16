@@ -5,6 +5,7 @@ const carFuelValidation = require("./carFuel.validation");
 const locationValidation = require("./location.validation");
 const servicesTagValidation = require("./servicesTag.validation");
 const carServicesValidation = require("./carServices.validation");
+const uploadImageValidation = require("./uploadImage.validation");
 // ADD_VALIDATION
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
   locationValidation,
   servicesTagValidation,
   carServicesValidation,
+  uploadImageValidation,
   // VALIDATION_REF
 };

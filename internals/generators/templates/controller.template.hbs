@@ -8,7 +8,7 @@ const ApiError = require("../utils/ApiError");
 const create{{pascal name}} = async (req, res, next) => {
   try {
     const resData = await {{name}}Model.create(req.body);
-    successHandle(res, httpStatus.CREATED, resData.toJSON(resData));
+    successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }

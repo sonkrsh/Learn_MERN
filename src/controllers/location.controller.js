@@ -8,7 +8,7 @@ const ApiError = require("../utils/ApiError");
 const createLocation = async (req, res, next) => {
   try {
     const resData = await locationModel.create(req.body);
-    successHandle(res, httpStatus.CREATED, resData.toJSON(resData));
+    successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }

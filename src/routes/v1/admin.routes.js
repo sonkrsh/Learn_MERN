@@ -5,6 +5,7 @@ const carFuelRoute = require("./admin/carFuel.routes");
 const locationRoute = require("./admin/location.routes");
 const servicesTagRoute = require("./admin/servicesTag.routes");
 const carServicesRoute = require("./admin/carServices.routes");
+const uploadImageRoute = require("./admin/uploadImage.routes");
 // ADD_ROUTES
 
 const combineRoute = [
@@ -15,6 +16,7 @@ const combineRoute = [
   locationRoute,
   servicesTagRoute,
   carServicesRoute,
+  uploadImageRoute,
   // ROUTES_REF
 ];
 

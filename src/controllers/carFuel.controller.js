@@ -14,7 +14,7 @@ const createCarFuel = async (req, res, next) => {
     await uploadImage(req, dataInSequence.imgShortId);
     const resData = await carFuelModel.create(dataInSequence.combineData);
 
-    successHandle(res, httpStatus.CREATED, resData.toJSON(resData));
+    successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }
