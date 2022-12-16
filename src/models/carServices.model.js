@@ -26,6 +26,9 @@ const carServices = sequelize.define(
       type: DataTypes.JSON,
       allowNull: false,
     },
+    time_taken_to_complete: {
+      type: DataTypes.BIGINT,
+    },
     servicesTag_uuid: {
       type: DataTypes.STRING,
       allowNull: false,

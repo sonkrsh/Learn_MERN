@@ -5,6 +5,7 @@ const createCarServices = {
     name: Joi.string().required(),
     image: Joi.string().required(),
     points: Joi.object().required(),
+    time_taken_to_complete: Joi.number().required(),
     servicesTag_uuid: Joi.string().required(),
   }),
 };
