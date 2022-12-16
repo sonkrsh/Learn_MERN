@@ -4,6 +4,7 @@ const carModelRoute = require("./admin/carModel.routes");
 const carFuelRoute = require("./admin/carFuel.routes");
 const locationRoute = require("./admin/location.routes");
 const servicesTagRoute = require("./admin/servicesTag.routes");
+const carServicesRoute = require("./admin/carServices.routes");
 // ADD_ROUTES
 
 const combineRoute = [
@@ -13,6 +14,7 @@ const combineRoute = [
   carFuelRoute,
   locationRoute,
   servicesTagRoute,
+  carServicesRoute,
   // ROUTES_REF
 ];
 
