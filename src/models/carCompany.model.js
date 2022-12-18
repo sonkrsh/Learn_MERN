@@ -5,6 +5,7 @@ const carCompany = sequelize.define(
   "carCompany",
   {
     carCompany_uuid: {
+      primaryKey: true,
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,

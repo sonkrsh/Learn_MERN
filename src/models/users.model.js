@@ -11,6 +11,7 @@ const users = sequelize.define(
       allowNull: false,
     },
     user_uuid: {
+      primaryKey: true,
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,

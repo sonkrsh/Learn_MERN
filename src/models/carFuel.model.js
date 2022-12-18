@@ -6,6 +6,7 @@ const carFuel = sequelize.define(
   "carFuel",
   {
     carFuel_uuid: {
+      primaryKey: true,
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,

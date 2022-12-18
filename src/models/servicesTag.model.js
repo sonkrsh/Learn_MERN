@@ -6,10 +6,10 @@ const servicesTag = sequelize.define(
   "servicesTag",
   {
     servicesTag_uuid: {
+      primaryKey: true,
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
