@@ -12,6 +12,11 @@ router
     verifyAuth(),
     validate(carServicesValidation.createCarServices),
     carServicesController.createCarServices
+  )
+  .get(
+    verifyAuth(),
+    // validate(carServicesValidation.createCarServices),
+    carServicesController.getCarServices
   );
 
 module.exports = router;

@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
-const { get } = require("lodash");
+const { get, isEqual } = require("lodash");
 const sequelize = require("../config/database");
-
+const serviceTag = require("./servicesTag.model");
 const carServices = sequelize.define(
   "carServices",
   {
@@ -25,6 +25,11 @@ const carServices = sequelize.define(
     points: {
       type: DataTypes.JSON,
       allowNull: false,
+      get: function () {
+        const returnValue = this.getDataValue("points");
+        if (isEqual(typeof returnValue, "object")) return returnValue;
+        else return JSON.parse(returnValue);
+      },
     },
     time_taken_to_complete: {
       type: DataTypes.BIGINT,
@@ -39,4 +44,7 @@ const carServices = sequelize.define(
   }
 );
 
+carServices.belongsTo(serviceTag, {
+  foreignKey: "services_tag_uuid",
+});
 module.exports = carServices;

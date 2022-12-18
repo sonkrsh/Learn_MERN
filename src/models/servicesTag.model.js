@@ -9,6 +9,7 @@ const servicesTag = sequelize.define(
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -28,6 +29,11 @@ const servicesTag = sequelize.define(
     },
     points: {
       type: DataTypes.JSON,
+      get: function () {
+        const returnValue = this.getDataValue("points");
+        if (isEqual(typeof returnValue, "object")) return returnValue;
+        else return JSON.parse(returnValue);
+      },
     },
   },
   {
