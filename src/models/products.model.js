@@ -1,5 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
+const carCompany = require("./carCompany.model");
+const carModel = require("./carModel.model");
+const carServices = require("./carServices.model");
 
 const products = sequelize.define(
   "products",
@@ -37,5 +40,15 @@ const products = sequelize.define(
     underscored: true,
   }
 );
+
+// products.belongsTo(carCompany, {
+//   foreignKey: "car_company_uuid",
+// });
+products.belongsTo(carModel, {
+  foreignKey: "car_model_uuid",
+});
+products.belongsTo(carServices, {
+  foreignKey: "car_services_uuid",
+});
 
 module.exports = products;

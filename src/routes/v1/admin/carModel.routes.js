@@ -13,6 +13,7 @@ router
     verifyAuth(),
     validate(carModelValidation.createCarModel),
     carModelController.createCarModel
-  );
+  )
+  .get(verifyAuth(), carModelController.getCarModel);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { carModelModel } = require("../models");
+const { carModelModel, carCompanyModel } = require("../models");
 const httpStatus = require("http-status");
 const { get, isEmpty } = require("lodash");
 const { createAuth } = require("../middlewares/auth");
@@ -15,5 +15,15 @@ const createCarModel = async (req, res, next) => {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }
 };
+const getCarModel = async (req, res, next) => {
+  try {
+    const resData = await carModelModel.findAll({
+      include: [carCompanyModel],
+    });
+    successHandle(res, httpStatus.CREATED, resData);
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
 
-module.exports = { createCarModel };
+module.exports = { createCarModel, getCarModel };

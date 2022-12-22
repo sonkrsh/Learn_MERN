@@ -2,6 +2,7 @@ const { DataTypes } = require("sequelize");
 const { get } = require("lodash");
 const sequelize = require("../config/database");
 
+const carCompany = require("./carCompany.model");
 const carModel = sequelize.define(
   "carModel",
   {

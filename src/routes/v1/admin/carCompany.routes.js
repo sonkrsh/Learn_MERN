@@ -17,6 +17,7 @@ router
     verifyAuth(),
     validate(carCompanyValidation.deleteCarCompany),
     carCompanyController.deleteCarCompany
-  );
+  )
+  .get(verifyAuth(), carCompanyController.getCarCompany);
 
 module.exports = router;

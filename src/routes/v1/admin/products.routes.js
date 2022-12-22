@@ -12,6 +12,7 @@ router
     verifyAuth(),
     validate(productsValidation.createProducts),
     productsController.createProducts
-  );
+  )
+  .get(verifyAuth(), productsController.getProducts);
 
 module.exports = router;

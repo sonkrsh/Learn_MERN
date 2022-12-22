@@ -1,4 +1,4 @@
-const { carCompanyModel } = require("../models");
+const { carCompanyModel, carModelModel } = require("../models");
 const httpStatus = require("http-status");
 const { get, isEmpty, isEqual } = require("lodash");
 const generateImageName = require("../utils/generateImageName");
@@ -30,4 +30,17 @@ const deleteCarCompany = async (req, res, next) => {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }
 };
-module.exports = { createCarCompany, deleteCarCompany };
+
+const getCarCompany = async (req, res, next) => {
+  try {
+    const resData = await carCompanyModel.findAll({
+      include: [carModelModel],
+    });
+
+    if (resData) successHandle(res, httpStatus.OK, resData);
+    return next(new ApiError(httpStatus.NOT_FOUND));
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
+module.exports = { createCarCompany, deleteCarCompany, getCarCompany };

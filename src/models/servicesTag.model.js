@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { get } = require("lodash");
+const { isEqual, isEmpty } = require("lodash");
 const sequelize = require("../config/database");
 
 const servicesTag = sequelize.define(
@@ -32,7 +32,8 @@ const servicesTag = sequelize.define(
       get: function () {
         const returnValue = this.getDataValue("points");
         if (isEqual(typeof returnValue, "object")) return returnValue;
-        else return JSON.parse(returnValue);
+        if (isEmpty(returnValue)) return returnValue;
+        return JSON.parse(returnValue);
       },
     },
   },
