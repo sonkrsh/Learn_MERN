@@ -1,7 +1,7 @@
 const sequelize = require("./config/database");
 const app = require("./app");
 const env = require("dotenv");
-
+const joins = require("./joins");
 const logger = require("./config/logger");
 
 env.config();
@@ -12,6 +12,7 @@ sequelize
   .sync({ alter: { drop: false } })
   // .sync()
   .then(() => {
+    joins;
     server = app.listen(process.env.PORT);
     logger.info("Connected to MYSQL");
     logger.info(`App listening on port http://localhost:${process.env.PORT}`);

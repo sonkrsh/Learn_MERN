@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
-const { get, isEqual } = require("lodash");
+const { isEqual } = require("lodash");
 const sequelize = require("../config/database");
-const serviceTag = require("./servicesTag.model");
+
 const carServices = sequelize.define(
   "carServices",
   {
@@ -36,7 +36,7 @@ const carServices = sequelize.define(
       type: DataTypes.BIGINT,
     },
     servicesTag_uuid: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       allowNull: false,
     },
   },
@@ -45,7 +45,4 @@ const carServices = sequelize.define(
   }
 );
 
-carServices.belongsTo(serviceTag, {
-  foreignKey: "services_tag_uuid",
-});
 module.exports = carServices;

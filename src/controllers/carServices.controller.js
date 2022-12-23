@@ -1,11 +1,9 @@
 const { carServicesModel, servicesTagModel } = require("../models");
 const httpStatus = require("http-status");
-const { get, isEmpty } = require("lodash");
-const { createAuth } = require("../middlewares/auth");
+const { get } = require("lodash");
+
 const successHandle = require("../middlewares/successHandle");
 const ApiError = require("../utils/ApiError");
-const generateImageName = require("../utils/generateImageName");
-const uploadImage = require("../utils/uploadImage");
 
 const createCarServices = async (req, res, next) => {
   try {

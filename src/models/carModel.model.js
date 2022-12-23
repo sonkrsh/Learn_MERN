@@ -2,7 +2,6 @@ const { DataTypes } = require("sequelize");
 const { get } = require("lodash");
 const sequelize = require("../config/database");
 
-const carCompany = require("./carCompany.model");
 const carModel = sequelize.define(
   "carModel",
   {
@@ -24,7 +23,7 @@ const carModel = sequelize.define(
       type: DataTypes.STRING,
     },
     carCompany_uuid: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
     },
   },
   {

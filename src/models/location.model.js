@@ -1,5 +1,4 @@
 const { DataTypes } = require("sequelize");
-const { get } = require("lodash");
 const sequelize = require("../config/database");
 
 const location = sequelize.define(

@@ -4,10 +4,10 @@ const {
   carModelModel,
   carServicesModel,
   servicesTagModel,
+  locationModel,
+  carFuelModel,
 } = require("../models");
 const httpStatus = require("http-status");
-const { get, isEmpty } = require("lodash");
-const { createAuth } = require("../middlewares/auth");
 const successHandle = require("../middlewares/successHandle");
 const ApiError = require("../utils/ApiError");
 
@@ -30,6 +30,8 @@ const getProducts = async (req, res, next) => {
         },
         carCompanyModel,
         carModelModel,
+        locationModel,
+        carFuelModel,
       ],
     });
     successHandle(res, httpStatus.CREATED, resData);
