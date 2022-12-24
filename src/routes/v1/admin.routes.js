@@ -10,6 +10,7 @@ const productsRoute = require("./admin/products.routes");
 const pointsRoute = require("./admin/points.routes");
 const pointsPriceRoute = require("./admin/pointsPrice.routes");
 const userRolesRoute = require("./admin/userRoles.routes");
+const cartRoute = require("./admin/cart.routes");
 // ADD_ROUTES
 
 const combineRoute = [
@@ -25,6 +26,7 @@ const combineRoute = [
   pointsRoute,
   pointsPriceRoute,
   userRolesRoute,
+  cartRoute,
   // ROUTES_REF
 ];
 

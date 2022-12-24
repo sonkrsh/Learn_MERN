@@ -10,6 +10,7 @@ const productsValidation = require("./products.validation");
 const pointsValidation = require("./points.validation");
 const pointsPriceValidation = require("./pointsPrice.validation");
 const userRolesValidation = require("./userRoles.validation");
+const cartValidation = require("./cart.validation");
 // ADD_VALIDATION
 
 module.exports = {
@@ -25,5 +26,6 @@ module.exports = {
   pointsValidation,
   pointsPriceValidation,
   userRolesValidation,
+  cartValidation,
   // VALIDATION_REF
 };
