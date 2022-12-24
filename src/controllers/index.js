@@ -9,6 +9,7 @@ const uploadImageController = require("./uploadImage.controller");
 const productsController = require("./products.controller");
 const pointsController = require("./points.controller");
 const pointsPriceController = require("./pointsPrice.controller");
+const userRolesController = require("./userRoles.controller");
 // ADD_CONTROLLER
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
   productsController,
   pointsController,
   pointsPriceController,
+  userRolesController,
   // CONTROLLER_REF
 };

@@ -26,9 +26,8 @@ const users = sequelize.define(
       type: DataTypes.STRING,
       private: true,
     },
-    user_rights: {
-      type: DataTypes.STRING,
-      defaultValue: "admin",
+    userRoles_uuid: {
+      type: DataTypes.UUID,
     },
     gender: {
       type: DataTypes.STRING,

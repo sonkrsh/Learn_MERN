@@ -8,6 +8,7 @@ const register = {
       .email({ tlds: { allow: false } }),
     gender: Joi.string().required(),
     password: Joi.string().required(),
+    userRoles_uuid: Joi.string().required(),
   }),
 };
 

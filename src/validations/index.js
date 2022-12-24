@@ -9,6 +9,7 @@ const uploadImageValidation = require("./uploadImage.validation");
 const productsValidation = require("./products.validation");
 const pointsValidation = require("./points.validation");
 const pointsPriceValidation = require("./pointsPrice.validation");
+const userRolesValidation = require("./userRoles.validation");
 // ADD_VALIDATION
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
   productsValidation,
   pointsValidation,
   pointsPriceValidation,
+  userRolesValidation,
   // VALIDATION_REF
 };

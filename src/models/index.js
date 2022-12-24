@@ -8,6 +8,7 @@ const carServicesModel = require("./carServices.model");
 const productsModel = require("./products.model");
 const pointsModel = require("./points.model");
 const pointsPriceModel = require("./pointsPrice.model");
+const userRolesModel = require("./userRoles.model");
 // ADD_MODEL
 
 module.exports = {
@@ -21,5 +22,6 @@ module.exports = {
   productsModel,
   pointsModel,
   pointsPriceModel,
+  userRolesModel,
   // MODEL_REF
 };
