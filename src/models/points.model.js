@@ -1,13 +1,13 @@
 const { DataTypes } = require("sequelize");
-const { isEqual } = require("lodash");
+const { get } = require("lodash");
 const sequelize = require("../config/database");
 
-const carServices = sequelize.define(
-  "carServices",
+const points = sequelize.define(
+  "points",
   {
-    carServices_uuid: {
-      primaryKey: true,
+    points_uuid: {
       allowNull: false,
+      primaryKey: true,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
@@ -19,21 +19,10 @@ const carServices = sequelize.define(
         this.setDataValue("name", value.trim());
       },
     },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    time_taken_to_complete: {
-      type: DataTypes.BIGINT,
-    },
-    servicesTag_uuid: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
   },
   {
     underscored: true,
   }
 );
 
-module.exports = carServices;
+module.exports = points;

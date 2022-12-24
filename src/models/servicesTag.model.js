@@ -27,15 +27,6 @@ const servicesTag = sequelize.define(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    points: {
-      type: DataTypes.JSON,
-      get: function () {
-        const returnValue = this.getDataValue("points");
-        if (isEqual(typeof returnValue, "object")) return returnValue;
-        if (isEmpty(returnValue)) return returnValue;
-        return JSON.parse(returnValue);
-      },
-    },
   },
   {
     underscored: true,

@@ -7,6 +7,7 @@ const servicesTagController = require("./servicesTag.controller");
 const carServicesController = require("./carServices.controller");
 const uploadImageController = require("./uploadImage.controller");
 const productsController = require("./products.controller");
+const pointsController = require("./points.controller");
 // ADD_CONTROLLER
 
 module.exports = {
@@ -19,5 +20,6 @@ module.exports = {
   carServicesController,
   uploadImageController,
   productsController,
+  pointsController,
   // CONTROLLER_REF
 };
