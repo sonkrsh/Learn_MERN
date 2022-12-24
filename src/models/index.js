@@ -7,6 +7,7 @@ const servicesTagModel = require("./servicesTag.model");
 const carServicesModel = require("./carServices.model");
 const productsModel = require("./products.model");
 const pointsModel = require("./points.model");
+const pointsPriceModel = require("./pointsPrice.model");
 // ADD_MODEL
 
 module.exports = {
@@ -19,5 +20,6 @@ module.exports = {
   carServicesModel,
   productsModel,
   pointsModel,
+  pointsPriceModel,
   // MODEL_REF
 };

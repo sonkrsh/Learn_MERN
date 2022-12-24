@@ -8,6 +8,7 @@ const carServicesController = require("./carServices.controller");
 const uploadImageController = require("./uploadImage.controller");
 const productsController = require("./products.controller");
 const pointsController = require("./points.controller");
+const pointsPriceController = require("./pointsPrice.controller");
 // ADD_CONTROLLER
 
 module.exports = {
@@ -21,5 +22,6 @@ module.exports = {
   uploadImageController,
   productsController,
   pointsController,
+  pointsPriceController,
   // CONTROLLER_REF
 };
