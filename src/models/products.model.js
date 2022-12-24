@@ -26,6 +26,9 @@ const products = sequelize.define(
     carServices_uuid: {
       type: DataTypes.UUID,
     },
+    pointsPrice_uuid: {
+      type: DataTypes.UUID,
+    },
     price: {
       type: DataTypes.BIGINT,
     },

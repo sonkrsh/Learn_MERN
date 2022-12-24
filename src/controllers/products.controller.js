@@ -6,6 +6,8 @@ const {
   servicesTagModel,
   locationModel,
   carFuelModel,
+  pointsPriceModel,
+  pointsModel,
 } = require("../models");
 const httpStatus = require("http-status");
 const successHandle = require("../middlewares/successHandle");
@@ -30,9 +32,14 @@ const getProducts = async (req, res, next) => {
           include: [servicesTagModel],
         },
         carCompanyModel,
-        // carModelModel,
+        carModelModel,
         locationModel,
         carFuelModel,
+        {
+          model: pointsPriceModel,
+          attributes: ["price", "discount", "createdAt", "updatedAt"],
+          include: [pointsModel],
+        },
       ],
     });
     successHandle(res, httpStatus.CREATED, resData);
