@@ -15,7 +15,7 @@ location.hasMany(products, { foreignKey: "location_uuid" });
 carFuel.hasMany(products, { foreignKey: "car_fuel_uuid" });
 servicesTag.hasMany(carServices, { foreignKey: "services_tag_uuid" });
 points.hasMany(pointsPrice, { foreignKey: "points_uuid" });
-pointsPrice.hasMany(products, { foreignKey: "points_price_uuid" });
+// pointsPrice.hasMany(products, { foreignKey: "points_price_uuid" });
 
 carModel.belongsTo(carCompany, { foreignKey: "car_company_uuid" });
 products.belongsTo(carCompany, { foreignKey: "car_company_uuid" });
@@ -25,4 +25,4 @@ products.belongsTo(carFuel, { foreignKey: "car_fuel_uuid" });
 products.belongsTo(carServices, { foreignKey: "car_services_uuid" });
 carServices.belongsTo(servicesTag, { foreignKey: "services_tag_uuid" });
 pointsPrice.belongsTo(points, { foreignKey: "points_uuid" });
-products.belongsTo(pointsPrice, { foreignKey: "points_price_uuid" });
+// products.belongsTo(pointsPrice, { foreignKey: "points_price_uuid" });

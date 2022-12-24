@@ -27,7 +27,13 @@ const products = sequelize.define(
       type: DataTypes.UUID,
     },
     pointsPrice_uuid: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
+      get: function () {
+        return this.getDataValue("pointsPrice_uuid").split(";");
+      },
+      set: function (val) {
+        this.setDataValue("pointsPrice_uuid", val.join(";"));
+      },
     },
     price: {
       type: DataTypes.BIGINT,

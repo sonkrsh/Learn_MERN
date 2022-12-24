@@ -7,7 +7,7 @@ const createProducts = {
     carFuel_uuid: Joi.string().required(),
     location_uuid: Joi.string(),
     carServices_uuid: Joi.string().required(),
-    pointsPrice_uuid: Joi.string().required(),
+    pointsPrice_uuid: Joi.array().required(),
     price: Joi.number().required(),
     discount: Joi.number(),
   }),

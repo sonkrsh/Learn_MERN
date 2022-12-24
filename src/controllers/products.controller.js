@@ -25,7 +25,7 @@ const createProducts = async (req, res, next) => {
 const getProducts = async (req, res, next) => {
   try {
     const resData = await productsModel.findAll({
-      attributes: [],
+      attributes: ["pointsPrice_uuid"],
       include: [
         {
           model: carServicesModel,
@@ -35,11 +35,6 @@ const getProducts = async (req, res, next) => {
         carModelModel,
         locationModel,
         carFuelModel,
-        {
-          model: pointsPriceModel,
-          attributes: ["price", "discount", "createdAt", "updatedAt"],
-          include: [pointsModel],
-        },
       ],
     });
     successHandle(res, httpStatus.CREATED, resData);
