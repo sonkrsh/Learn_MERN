@@ -4,7 +4,7 @@ const errorHandle = (err, req, res, next) => {
   res.status(statusCode).json({
     code: statusCode,
     message: err.message || "Not Found",
-    stack: err.stack,
+    // stack: err.stack,
   });
 };
 

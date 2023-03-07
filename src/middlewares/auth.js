@@ -5,20 +5,13 @@ const ApiError = require("../utils/ApiError");
 const config = require("../config/config");
 
 const verifyAuth = () => async (req, res, next) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const extractToken = split(get(req, "headers.authorization"), " ")[1];
-
-      jwt.verify(extractToken, get(config, "jwt.secret"));
-      resolve();
-    } catch (error) {
-      reject(error);
-    }
-  })
-    .then((e) => {
-      next();
-    })
-    .catch((err) => next(new ApiError(httpStatus.UNAUTHORIZED, err)));
+  const extractToken = split(get(req, "headers.authorization"), " ")[1];
+  try {
+    jwt.verify(extractToken, get(config, "jwt.secret"));
+    next();
+  } catch (error) {
+    next(new ApiError(httpStatus.UNAUTHORIZED, error));
+  }
 };
 
 const createAuth = async (user) => {
