@@ -31,5 +31,7 @@ products.belongsTo(location, { foreignKey: "location_uuid" });
 products.belongsTo(carFuel, { foreignKey: "car_fuel_uuid" });
 products.belongsTo(carServices, { foreignKey: "car_services_uuid" });
 carServices.belongsTo(servicesTag, { foreignKey: "services_tag_uuid" });
+carServices.belongsTo(points, { foreignKey: "points_uuid" });
+
 // carServices.belongsTo(points, { foreignKey: "points_uuid" });
 // users.belongsTo(userRoles, { foreignKey: "userRoles_uuid" });

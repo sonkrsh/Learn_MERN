@@ -6,7 +6,6 @@ const {
   servicesTagModel,
   locationModel,
   carFuelModel,
-  pointsPriceModel,
   pointsModel,
 } = require("../models");
 const httpStatus = require("http-status");
@@ -30,6 +29,14 @@ const getProducts = async (req, res, next) => {
         {
           model: carServicesModel,
           include: [servicesTagModel],
+        },
+        {
+          model: carCompanyModel,
+          include: [carModelModel],
+        },
+        {
+          model: carServicesModel,
+          include: [pointsModel],
         },
         carCompanyModel,
         carModelModel,

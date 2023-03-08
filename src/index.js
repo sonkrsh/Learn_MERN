@@ -8,8 +8,8 @@ env.config();
 
 let server;
 sequelize
-  .sync({ force: true })
-  // .sync({ alter: { drop: false } })
+  // .sync({ force: true })
+  .sync({ alter: { drop: false } })
   // .sync()
   .then(() => {
     // joins;

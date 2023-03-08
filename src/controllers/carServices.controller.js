@@ -1,4 +1,8 @@
-const { carServicesModel, servicesTagModel } = require("../models");
+const {
+  carServicesModel,
+  servicesTagModel,
+  pointsModel,
+} = require("../models");
 const httpStatus = require("http-status");
 const { get } = require("lodash");
 
@@ -18,9 +22,15 @@ const createCarServices = async (req, res, next) => {
 const getCarServices = async (req, res, next) => {
   try {
     const resData = await carServicesModel.findAll({
-      include: servicesTagModel,
+      attributes: [
+        "name",
+        "image_uuid",
+        "time_taken_to_complete",
+        "carServices_uuid",
+      ],
+      include: [servicesTagModel, pointsModel],
     });
-
+    pointsModel;
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
