@@ -18,8 +18,8 @@ const carFuel = sequelize.define(
         this.setDataValue("name", value.trim());
       },
     },
-    image: {
-      type: DataTypes.STRING,
+    image_uuid: {
+      type: DataTypes.UUID,
     },
   },
   {

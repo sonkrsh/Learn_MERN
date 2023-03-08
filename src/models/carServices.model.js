@@ -19,9 +19,8 @@ const carServices = sequelize.define(
         this.setDataValue("name", value.trim());
       },
     },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    image_uuid: {
+      type: DataTypes.UUID,
     },
     time_taken_to_complete: {
       type: DataTypes.BIGINT,

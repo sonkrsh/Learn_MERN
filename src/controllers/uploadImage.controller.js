@@ -1,5 +1,5 @@
 const httpStatus = require("http-status");
-
+const { imagesModel } = require("../models");
 const successHandle = require("../middlewares/successHandle");
 const ApiError = require("../utils/ApiError");
 const generateImageName = require("../utils/generateImageName");
@@ -10,7 +10,12 @@ const createUploadImage = async (req, res, next) => {
     const dataInSequence = await generateImageName(req);
 
     await uploadImage(req, dataInSequence.imgShortId);
-    successHandle(res, httpStatus.CREATED, dataInSequence.combineData);
+
+    const resData = await imagesModel.create({
+      path: dataInSequence.combineData.image,
+    });
+
+    successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }

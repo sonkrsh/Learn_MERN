@@ -7,9 +7,9 @@ const servicesTagModel = require("./servicesTag.model");
 const carServicesModel = require("./carServices.model");
 const productsModel = require("./products.model");
 const pointsModel = require("./points.model");
-const pointsPriceModel = require("./pointsPrice.model");
 const userRolesModel = require("./userRoles.model");
 const cartModel = require("./cart.model");
+const imagesModel = require("./image.model");
 // ADD_MODEL
 
 module.exports = {
@@ -22,8 +22,8 @@ module.exports = {
   carServicesModel,
   productsModel,
   pointsModel,
-  pointsPriceModel,
   userRolesModel,
   cartModel,
+  imagesModel,
   // MODEL_REF
 };

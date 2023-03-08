@@ -11,12 +11,15 @@ const points = sequelize.define(
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
-    name: {
+    points: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
       set: function (value) {
-        this.setDataValue("name", value.trim());
+        const stringyFy = JSON.stringify(value);
+        this.setDataValue("points", stringyFy);
+      },
+      get: function (value) {
+        const parseData = JSON.parse(this.getDataValue(value));
+        return parseData;
       },
     },
   },

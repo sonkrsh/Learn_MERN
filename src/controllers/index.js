@@ -8,7 +8,6 @@ const carServicesController = require("./carServices.controller");
 const uploadImageController = require("./uploadImage.controller");
 const productsController = require("./products.controller");
 const pointsController = require("./points.controller");
-const pointsPriceController = require("./pointsPrice.controller");
 const userRolesController = require("./userRoles.controller");
 const cartController = require("./cart.controller");
 // ADD_CONTROLLER
@@ -24,7 +23,6 @@ module.exports = {
   uploadImageController,
   productsController,
   pointsController,
-  pointsPriceController,
   userRolesController,
   cartController,
   // CONTROLLER_REF

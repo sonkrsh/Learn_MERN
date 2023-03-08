@@ -8,11 +8,11 @@ env.config();
 
 let server;
 sequelize
-  // .sync({ force: true })
-  .sync({ alter: { drop: false } })
+  .sync({ force: true })
+  // .sync({ alter: { drop: false } })
   // .sync()
   .then(() => {
-    joins;
+    // joins;
     server = app.listen(process.env.PORT);
     logger.info("Connected to MYSQL");
     logger.info(`App listening on port http://localhost:${process.env.PORT}`);

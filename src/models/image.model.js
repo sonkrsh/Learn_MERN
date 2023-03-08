@@ -2,28 +2,22 @@ const { DataTypes } = require("sequelize");
 const { get } = require("lodash");
 const sequelize = require("../config/database");
 
-const carModel = sequelize.define(
-  "carModel",
+const image = sequelize.define(
+  "image",
   {
-    carModel_uuid: {
-      primaryKey: true,
+    image_uuid: {
       allowNull: false,
+      primaryKey: true,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
-    name: {
+    path: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       set: function (value) {
-        this.setDataValue("name", value.trim());
+        this.setDataValue("path", value.trim());
       },
-    },
-    image_uuid: {
-      type: DataTypes.UUID,
-    },
-    carCompany_uuid: {
-      type: DataTypes.UUID,
     },
   },
   {
@@ -31,4 +25,4 @@ const carModel = sequelize.define(
   }
 );
 
-module.exports = carModel;
+module.exports = image;

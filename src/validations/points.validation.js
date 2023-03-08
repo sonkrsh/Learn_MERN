@@ -2,7 +2,9 @@ const Joi = require("joi");
 
 const createPoints = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
+    points: Joi.array().items({
+      name: Joi.string().required(),
+    }),
   }),
 };
 
