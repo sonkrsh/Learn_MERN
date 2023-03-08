@@ -15,4 +15,14 @@ const createServicesTag = async (req, res, next) => {
   }
 };
 
-module.exports = { createServicesTag };
+const getServicesTag = async (req, res, next) => {
+  try {
+    const resData = await servicesTagModel.findAll({});
+
+    successHandle(res, httpStatus.CREATED, resData);
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
+
+module.exports = { createServicesTag, getServicesTag };

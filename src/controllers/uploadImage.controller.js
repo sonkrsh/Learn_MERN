@@ -21,4 +21,8 @@ const createUploadImage = async (req, res, next) => {
   }
 };
 
-module.exports = { createUploadImage };
+const getUploadImage = async (req, res, next) => {
+  const resData = await imagesModel.findAll({});
+  successHandle(res, httpStatus.OK, resData);
+};
+module.exports = { createUploadImage, getUploadImage };

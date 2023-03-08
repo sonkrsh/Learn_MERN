@@ -13,6 +13,7 @@ router
     validate(carFuelValidation.createCarFuel),
     carFuelController.createCarFuel
   )
+  .get(verifyAuth(), carFuelController.getCarFuel)
   .delete(
     verifyAuth(),
     validate(carFuelValidation.deleteCarFuel),

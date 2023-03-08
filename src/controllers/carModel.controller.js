@@ -15,9 +15,7 @@ const createCarModel = async (req, res, next) => {
 };
 const getCarModel = async (req, res, next) => {
   try {
-    const resData = await carModelModel.findAll({
-      include: [carCompanyModel],
-    });
+    const resData = await carModelModel.findAll({});
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));

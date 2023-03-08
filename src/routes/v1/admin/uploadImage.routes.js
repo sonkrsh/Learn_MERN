@@ -14,6 +14,7 @@ router
     upload.single("image"),
     validate(uploadImageValidation.createUploadImage),
     uploadImageController.createUploadImage
-  );
+  )
+  .get(verifyAuth(), uploadImageController.getUploadImage);
 
 module.exports = router;

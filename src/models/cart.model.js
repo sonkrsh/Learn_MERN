@@ -17,9 +17,6 @@ const cart = sequelize.define(
     product_uuid: {
       type: DataTypes.UUID,
     },
-    points_uuid: {
-      type: DataTypes.UUID,
-    },
   },
   {
     underscored: true,

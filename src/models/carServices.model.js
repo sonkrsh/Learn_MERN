@@ -29,6 +29,10 @@ const carServices = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
     },
+    points_uuid: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
   },
   {
     underscored: true,

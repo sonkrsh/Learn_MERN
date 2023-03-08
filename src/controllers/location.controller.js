@@ -14,4 +14,13 @@ const createLocation = async (req, res, next) => {
   }
 };
 
-module.exports = { createLocation };
+const getLocation = async (req, res, bext) => {
+  try {
+    const resData = await locationModel.findAll({});
+    successHandle(res, httpStatus.CREATED, resData);
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
+
+module.exports = { createLocation, getLocation };

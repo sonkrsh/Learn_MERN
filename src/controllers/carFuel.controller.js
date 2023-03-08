@@ -15,6 +15,15 @@ const createCarFuel = async (req, res, next) => {
   }
 };
 
+const getCarFuel = async (req, res, next) => {
+  try {
+    const resData = await carFuelModel.findAll({});
+
+    successHandle(res, httpStatus.CREATED, resData);
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
 const deleteCarFuel = async (req, res, next) => {
   try {
     const resData = await carFuelModel.destroy({
@@ -30,4 +39,4 @@ const deleteCarFuel = async (req, res, next) => {
   }
 };
 
-module.exports = { createCarFuel, deleteCarFuel };
+module.exports = { createCarFuel, deleteCarFuel, getCarFuel };

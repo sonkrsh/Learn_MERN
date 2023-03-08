@@ -12,6 +12,7 @@ router
     verifyAuth(),
     validate(locationValidation.createLocation),
     locationController.createLocation
-  );
+  )
+  .get(verifyAuth(), locationController.getLocation);
 
 module.exports = router;

@@ -12,6 +12,7 @@ router
     verifyAuth(),
     validate(servicesTagValidation.createServicesTag),
     servicesTagController.createServicesTag
-  );
+  )
+  .get(verifyAuth(), servicesTagController.getServicesTag);
 
 module.exports = router;
