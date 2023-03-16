@@ -35,8 +35,7 @@ const getCarCompany = async (req, res, next) => {
       include: [carModelModel],
     });
 
-    if (resData) successHandle(res, httpStatus.OK, resData);
-    return next(new ApiError(httpStatus.NOT_FOUND));
+    successHandle(res, httpStatus.OK, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));
   }

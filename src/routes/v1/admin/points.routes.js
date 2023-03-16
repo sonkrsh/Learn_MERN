@@ -12,6 +12,7 @@ router
     verifyAuth(),
     validate(pointsValidation.createPoints),
     pointsController.createPoints
-  );
+  )
+  .get(verifyAuth(), pointsController.getPoints);
 
 module.exports = router;

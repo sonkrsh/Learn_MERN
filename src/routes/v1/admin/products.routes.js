@@ -14,5 +14,8 @@ router
     productsController.createProducts
   )
   .get(verifyAuth(), productsController.getProducts);
+router
+  .route("/filter-products/:car/:model/:fuel/:location")
+  .get(verifyAuth(), productsController.getFilterProducts);
 
 module.exports = router;

@@ -14,4 +14,13 @@ const createPoints = async (req, res, next) => {
   }
 };
 
-module.exports = { createPoints };
+const getPoints = async (req, res, next) => {
+  try {
+    const resData = await pointsModel.findAll({});
+    successHandle(res, httpStatus.CREATED, resData);
+  } catch (err) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+  }
+};
+
+module.exports = { createPoints, getPoints };
