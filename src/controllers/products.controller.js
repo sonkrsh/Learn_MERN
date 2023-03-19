@@ -68,14 +68,12 @@ const getFilterProducts = async (req, res, next) => {
           where: {
             name: `${req.params.car}`,
           },
-          include: [
-            {
-              model: carModelModel,
-              where: {
-                name: `${req.params.model}`,
-              },
-            },
-          ],
+        },
+        {
+          model: carModelModel,
+          where: {
+            name: `${req.params.model}`,
+          },
         },
         {
           model: locationModel,
