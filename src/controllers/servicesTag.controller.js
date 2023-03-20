@@ -17,7 +17,9 @@ const createServicesTag = async (req, res, next) => {
 
 const getServicesTag = async (req, res, next) => {
   try {
-    const resData = await servicesTagModel.findAll({});
+    const resData = await servicesTagModel.findAll({
+      order: [["createdAt", "ASC"]],
+    });
 
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {

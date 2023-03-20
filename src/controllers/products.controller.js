@@ -30,14 +30,7 @@ const getProducts = async (req, res, next) => {
           model: carServicesModel,
           include: [servicesTagModel],
         },
-        {
-          model: carCompanyModel,
-          include: [carModelModel],
-        },
-        {
-          model: carServicesModel,
-          include: [pointsModel],
-        },
+
         carCompanyModel,
         carModelModel,
         locationModel,
@@ -59,10 +52,7 @@ const getFilterProducts = async (req, res, next) => {
           model: carServicesModel,
           include: [servicesTagModel],
         },
-        {
-          model: carServicesModel,
-          include: [pointsModel],
-        },
+
         {
           model: carCompanyModel,
           where: {
@@ -91,7 +81,7 @@ const getFilterProducts = async (req, res, next) => {
     });
     successHandle(res, httpStatus.CREATED, resData);
   } catch (error) {
-    return next(new ApiError(httpStatus.BAD_REQUEST, err));
+    return next(new ApiError(httpStatus.BAD_REQUEST, error));
   }
 };
 module.exports = { createProducts, getProducts, getFilterProducts };

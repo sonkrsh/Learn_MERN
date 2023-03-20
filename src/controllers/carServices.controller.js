@@ -28,9 +28,8 @@ const getCarServices = async (req, res, next) => {
         "time_taken_to_complete",
         "carServices_uuid",
       ],
-      include: [servicesTagModel, pointsModel],
+      include: [servicesTagModel],
     });
-    pointsModel;
     successHandle(res, httpStatus.CREATED, resData);
   } catch (err) {
     return next(new ApiError(httpStatus.BAD_REQUEST, err));

@@ -29,9 +29,16 @@ const carServices = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
     },
-    points_uuid: {
-      type: DataTypes.UUID,
-      allowNull: false,
+    points: {
+      type: DataTypes.STRING(1000),
+      set: function (value) {
+        const stringyFy = JSON.stringify(value);
+        this.setDataValue("points", stringyFy);
+      },
+      get: function (value) {
+        const parseData = JSON.parse(this.getDataValue(value));
+        return parseData;
+      },
     },
   },
   {
